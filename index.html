@@ -14,19 +14,24 @@
         }
 
         :root {
-            --charcoal: #1a1a2e;
-            --deep-navy: #16213e;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --charcoal: #343a40;
             --muted-gold: #c5a47e;
             --rose-gold: #e8b4a9;
             --light-gold: #f4e4c1;
-            --white: #ffffff;
-            --light-gray: #f5f5f5;
-            --dark-overlay: rgba(0, 0, 0, 0.6);
+            --accent: #4a6fa5;
+            --deep-blue: #2c3e50;
+            --soft-pink: #f8d7da;
+            --soft-blue: #d1ecf1;
+            --soft-green: #d4edda;
         }
 
         body {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--deep-navy) 100%);
-            color: var(--white);
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            color: var(--charcoal);
             min-height: 100vh;
             line-height: 1.6;
         }
@@ -34,12 +39,12 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             padding-top: 1rem;
         }
 
@@ -47,46 +52,53 @@
             font-size: 2.5rem;
             font-weight: 300;
             letter-spacing: 3px;
-            margin-bottom: 1rem;
-            color: var(--muted-gold);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--muted-gold) 0%, var(--rose-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .tagline {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            color: var(--light-gold);
-            opacity: 0.8;
-            margin-bottom: 2rem;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
         }
 
         .workflow-container {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 1.5rem;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .workflow-step {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--white);
+            border-radius: 16px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--medium-gray);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .workflow-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
         .step-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--muted-gold);
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--deep-blue);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .step-title i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            color: var(--muted-gold);
         }
 
         .dropdown-container {
@@ -96,11 +108,11 @@
 
         .dropdown-select {
             width: 100%;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 10px;
+            color: var(--charcoal);
             font-size: 1rem;
             appearance: none;
             cursor: pointer;
@@ -110,7 +122,7 @@
         .dropdown-select:focus {
             outline: none;
             border-color: var(--muted-gold);
-            box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3);
+            box-shadow: 0 0 0 3px rgba(197, 164, 126, 0.2);
         }
 
         .dropdown-arrow {
@@ -128,17 +140,18 @@
 
         .form-label {
             display: block;
-            margin-bottom: 0.5rem;
-            color: var(--light-gold);
+            margin-bottom: 0.7rem;
+            color: var(--dark-gray);
+            font-weight: 600;
         }
 
         .form-input {
             width: 100%;
-            padding: 1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 8px;
-            color: var(--white);
+            padding: 1.2rem 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 10px;
+            color: var(--charcoal);
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -146,59 +159,65 @@
         .form-input:focus {
             outline: none;
             border-color: var(--muted-gold);
-            box-shadow: 0 0 0 2px rgba(197, 164, 126, 0.3);
+            box-shadow: 0 0 0 3px rgba(197, 164, 126, 0.2);
         }
 
         .image-upload-container {
-            border: 2px dashed rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
+            border: 2px dashed var(--medium-gray);
+            border-radius: 10px;
             padding: 2rem;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
+            background: var(--light-gray);
         }
 
         .image-upload-container:hover {
             border-color: var(--muted-gold);
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--soft-blue);
         }
 
         .image-upload-icon {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--muted-gold);
             margin-bottom: 1rem;
         }
 
         .image-upload-text {
-            color: var(--light-gold);
+            color: var(--dark-gray);
+            font-weight: 500;
         }
 
         .image-preview {
             margin-top: 1.5rem;
             display: none;
+            text-align: center;
         }
 
         .image-preview img {
             max-width: 100%;
-            max-height: 200px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-height: 250px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--medium-gray);
         }
 
         .generate-btn {
             background: linear-gradient(135deg, var(--muted-gold) 0%, var(--rose-gold) 100%);
-            color: var(--charcoal);
+            color: var(--white);
             border: none;
-            border-radius: 8px;
-            padding: 1.2rem 2.5rem;
+            border-radius: 10px;
+            padding: 1.3rem 2.5rem;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             display: block;
             margin: 2rem auto 0;
-            box-shadow: 0 5px 15px rgba(197, 164, 126, 0.3);
+            box-shadow: 0 6px 15px rgba(197, 164, 126, 0.3);
+            width: 100%;
+            max-width: 320px;
         }
 
         .generate-btn:hover {
@@ -216,51 +235,86 @@
         }
 
         .output-title {
-            font-size: 1.8rem;
+            font-size: 1.7rem;
             margin-bottom: 1.5rem;
-            color: var(--muted-gold);
+            color: var(--deep-blue);
+            font-weight: 600;
         }
 
         .wish-card {
             position: relative;
-            max-width: 500px;
+            max-width: 300px;
             margin: 0 auto;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            border: 1px solid var(--medium-gray);
+            /* WhatsApp Status Size - Vertical */
+            width: 300px;
+            height: 533px;
         }
 
         .wish-card-bg {
             width: 100%;
-            height: 300px;
+            height: 100%;
             background-size: cover;
             background-position: center;
             position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
         }
 
         .wish-card-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 2;
+            position: relative;
+        }
+
+        .wish-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            line-height: 1.5;
+        }
+
+        .wish-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--light-gold);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        }
+
+        .user-image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .text-overlay {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             padding: 2rem;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .wish-text {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-        }
-
-        .wish-name {
-            font-size: 1.2rem;
-            font-weight: 300;
-            color: var(--light-gold);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            z-index: 1;
         }
 
         .action-buttons {
@@ -268,30 +322,34 @@
             justify-content: center;
             gap: 1rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .action-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: var(--white);
-            border-radius: 8px;
-            padding: 0.8rem 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--medium-gray);
+            color: var(--dark-gray);
+            border-radius: 10px;
+            padding: 0.9rem 1.5rem;
             font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-weight: 500;
         }
 
         .action-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--light-gray);
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .action-btn.download {
             background: linear-gradient(135deg, var(--muted-gold) 0%, var(--rose-gold) 100%);
-            color: var(--charcoal);
+            color: var(--white);
+            border: none;
         }
 
         .loading {
@@ -303,7 +361,7 @@
         .loading-spinner {
             width: 50px;
             height: 50px;
-            border: 5px solid rgba(255, 255, 255, 0.1);
+            border: 5px solid rgba(0, 0, 0, 0.1);
             border-top: 5px solid var(--muted-gold);
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -320,14 +378,22 @@
             justify-content: space-between;
             margin-top: 1.5rem;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .ai-step {
             flex: 1;
+            min-width: 140px;
             text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
+            padding: 1.2rem 0.8rem;
+            background: linear-gradient(135deg, var(--soft-blue) 0%, var(--soft-green) 100%);
+            border-radius: 12px;
+            border: 1px solid var(--medium-gray);
+            transition: transform 0.3s ease;
+        }
+
+        .ai-step:hover {
+            transform: translateY(-5px);
         }
 
         .ai-step-icon {
@@ -338,29 +404,83 @@
 
         .ai-step-title {
             font-size: 0.9rem;
-            color: var(--light-gold);
+            color: var(--dark-gray);
+            font-weight: 600;
         }
 
         footer {
             text-align: center;
             margin-top: 4rem;
             padding: 2rem 0;
-            color: var(--light-gold);
-            opacity: 0.7;
+            color: var(--dark-gray);
+            opacity: 0.8;
             font-size: 0.9rem;
+            border-top: 1px solid var(--medium-gray);
         }
 
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .container {
-                padding: 1rem;
+                padding: 0.8rem;
             }
             
             .workflow-step {
                 padding: 1.5rem;
             }
             
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1rem;
+            }
+            
+            .step-title {
+                font-size: 1.2rem;
+            }
+            
+            .wish-card {
+                width: 280px;
+                height: 500px;
+            }
+            
+            .wish-text {
+                font-size: 1.2rem;
+            }
+            
+            .wish-name {
+                font-size: 1.1rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                max-width: 220px;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
             .ai-steps {
                 flex-direction: column;
+            }
+            
+            .ai-step {
+                min-width: 100%;
+            }
+            
+            .wish-card {
+                width: 260px;
+                height: 460px;
+            }
+            
+            .wish-text {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -450,12 +570,15 @@
 
             <!-- Step 3: Output -->
             <div class="workflow-step output-container" id="output-container">
-                <h2 class="step-title"><i class="fas fa-gift"></i> Your Luxury Wish Card</h2>
+                <h2 class="output-title"><i class="fas fa-gift"></i> Your Luxury Wish Card</h2>
                 
                 <div class="wish-card">
                     <div class="wish-card-bg" id="wish-card-bg">
+                        <!-- User image will be displayed here -->
+                        <div class="user-image-container" id="user-image-container"></div>
+                        <div class="text-overlay"></div>
                         <div class="wish-card-content">
-                            <p class="wish-text" id="wish-text">Wishing you joy and prosperity this festive season!</p>
+                            <p class="wish-text" id="wish-text">May this festive season bring you endless joy, prosperity, and beautiful moments to cherish forever with your loved ones!</p>
                             <p class="wish-name" id="wish-name">- From Alex</p>
                         </div>
                     </div>
@@ -498,28 +621,32 @@
             const downloadBtn = document.getElementById('download-btn');
             const shareBtn = document.getElementById('share-btn');
             const newWishBtn = document.getElementById('new-wish-btn');
+            const userImageContainer = document.getElementById('user-image-container');
             
             // Background images for different occasions
             const backgroundImages = {
-                festival: 'linear-gradient(135deg, rgba(120, 0, 0, 0.7), rgba(255, 215, 0, 0.5)), url(https://images.unsplash.com/photo-1604878557304-8e79ee3357c9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                morning: 'linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 255, 0, 0.4)), url(https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                night: 'linear-gradient(135deg, rgba(0, 0, 139, 0.7), rgba(75, 0, 130, 0.5)), url(https://images.unsplash.com/photo-1532978379173-523e16f371f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                birthday: 'linear-gradient(135deg, rgba(255, 20, 147, 0.6), rgba(255, 105, 180, 0.4)), url(https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                anniversary: 'linear-gradient(135deg, rgba(255, 0, 0, 0.6), rgba(255, 192, 203, 0.4)), url(https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                celebration: 'linear-gradient(135deg, rgba(0, 128, 0, 0.6), rgba(50, 205, 50, 0.4)), url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)',
-                other: 'linear-gradient(135deg, rgba(128, 0, 128, 0.6), rgba(255, 0, 255, 0.4)), url(https://images.unsplash.com/photo-1550684376-efcbd6e3f031?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80)'
+                festival: 'linear-gradient(135deg, rgba(120, 0, 0, 0.7), rgba(255, 215, 0, 0.5))',
+                morning: 'linear-gradient(135deg, rgba(255, 165, 0, 0.6), rgba(255, 255, 0, 0.4))',
+                night: 'linear-gradient(135deg, rgba(0, 0, 139, 0.7), rgba(75, 0, 130, 0.5))',
+                birthday: 'linear-gradient(135deg, rgba(255, 20, 147, 0.6), rgba(255, 105, 180, 0.4))',
+                anniversary: 'linear-gradient(135deg, rgba(255, 0, 0, 0.6), rgba(255, 192, 203, 0.4))',
+                celebration: 'linear-gradient(135deg, rgba(0, 128, 0, 0.6), rgba(50, 205, 50, 0.4))',
+                other: 'linear-gradient(135deg, rgba(128, 0, 128, 0.6), rgba(255, 0, 255, 0.4))'
             };
             
-            // Wish templates for different occasions
+            // Wish templates for different occasions (longer text)
             const wishTemplates = {
-                festival: "Wishing you joy and prosperity this festive season!",
-                morning: "May your morning be as bright and beautiful as you are!",
-                night: "Wishing you peaceful dreams and a restful night!",
-                birthday: "Happy Birthday! May your special day be filled with joy and laughter!",
-                anniversary: "Celebrating the love you share. Happy Anniversary!",
-                celebration: "Congratulations on your achievement! Well deserved!",
-                other: "Sending you warm wishes and positive thoughts!"
+                festival: "May this festive season bring you endless joy, prosperity, and beautiful moments to cherish forever with your loved ones!",
+                morning: "Wishing you a morning filled with positive energy, beautiful sunshine, and the promise of a wonderful day ahead full of opportunities!",
+                night: "May your night be peaceful and restful, filled with sweet dreams and the quiet comfort that prepares you for a brand new tomorrow!",
+                birthday: "Happy Birthday! May your special day be filled with laughter, joy, wonderful surprises, and the love of all those who care about you!",
+                anniversary: "Celebrating the beautiful love and precious moments you've shared together. Wishing you many more years of happiness and togetherness!",
+                celebration: "Congratulations on your amazing achievement! Your hard work, dedication, and perseverance have truly paid off in the most wonderful way!",
+                other: "Sending you warm wishes filled with positivity, hope, and the promise of beautiful moments ahead in your journey through life!"
             };
+            
+            // Store uploaded image
+            let uploadedImage = null;
             
             // Event Listeners
             imageUpload.addEventListener('click', function() {
@@ -533,6 +660,7 @@
                     
                     reader.onload = function(event) {
                         previewImg.src = event.target.result;
+                        uploadedImage = event.target.result;
                         imagePreview.style.display = 'block';
                     };
                     
@@ -554,17 +682,37 @@
                 
                 // Show loading
                 loading.style.display = 'block';
+                generateBtn.disabled = true;
                 
                 // Simulate AI processing
                 setTimeout(function() {
                     // Hide loading
                     loading.style.display = 'none';
+                    generateBtn.disabled = false;
                     
                     // Set background based on occasion
                     const occasion = occasionSelect.value;
                     wishCardBg.style.backgroundImage = backgroundImages[occasion];
-                    wishCardBg.style.backgroundSize = 'cover';
-                    wishCardBg.style.backgroundPosition = 'center';
+                    
+                    // Add user image if uploaded
+                    if (uploadedImage) {
+                        // Clear previous user image
+                        userImageContainer.innerHTML = '';
+                        
+                        const userImage = document.createElement('img');
+                        userImage.src = uploadedImage;
+                        userImage.style.width = '100%';
+                        userImage.style.height = '100%';
+                        userImage.style.objectFit = 'cover';
+                        
+                        userImageContainer.appendChild(userImage);
+                        userImageContainer.style.display = 'block';
+                        
+                        // Simulate background removal with opacity
+                        userImage.style.opacity = '0.7';
+                    } else {
+                        userImageContainer.style.display = 'none';
+                    }
                     
                     // Set wish text
                     wishText.textContent = wishTemplates[occasion];
@@ -594,6 +742,8 @@
                 nameInput.value = '';
                 fileInput.value = '';
                 imagePreview.style.display = 'none';
+                uploadedImage = null;
+                userImageContainer.style.display = 'none';
                 
                 // Hide output
                 outputContainer.style.display = 'none';
